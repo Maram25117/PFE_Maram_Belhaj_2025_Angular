@@ -1,0 +1,75 @@
+<app-navbar></app-navbar> 
+<div class="login"> 
+  <div class="image-container">
+    <!-- Vide -->
+  </div>
+
+  <!-- Section formulaire (gauche) - Structure identique à la connexion -->
+  <div class="form-container">
+
+      <!-- Titre spécifique à la page -->
+      <h1 class="title">Modifier mot de passe</h1> <!-- MODIFIÉ : Titre -->
+
+      <!-- Formulaire de réinitialisation (étape 2) -->
+      <form (submit)="handleResetPasswordSubmit($event)"> <!-- MODIFIÉ: Appelle la bonne fonction -->
+
+        <!-- Champ Token -->
+        <div class="form-group icon-input">
+          <i class="fas fa-key icon"></i> <!-- MODIFIÉ: Icône pour le token -->
+          <input
+            type="text"
+            id="token"
+            name="token"
+            placeholder="Token reçu par email" 
+            [(ngModel)]="token"
+            autocomplete="off"
+            required
+          />
+        </div>
+
+        <!-- Champ Nouveau Mot de passe -->
+        <div class="form-group icon-input">
+          <i class="fas fa-lock icon"></i> <!-- Icône -->
+          <input
+            type="password"
+            id="newPassword"
+            name="newPassword"
+            placeholder="Nouveau mot de passe" 
+            [(ngModel)]="newPassword"
+            required
+          />
+        </div>
+
+        <!-- Champ Confirmer Mot de passe -->
+        <div class="form-group icon-input">
+          <i class="fas fa-lock icon"></i> 
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirmer le mot de passe" 
+            [(ngModel)]="confirmPassword"
+            required
+          />
+        </div>
+
+        <!-- Affichage de l'erreur -->
+        <div class="error" *ngIf="error">{{ error }}</div>
+        <!-- Affichage du succès -->
+        <div *ngIf="success" class="success-message">{{ success }}</div> <!-- Gardé, style à ajouter/vérifier -->
+
+        <!-- Bouton d'envoi -->
+        <button type="submit" class="btn btn-primary">RÉINITIALISER</button> <!-- MODIFIÉ: Texte du bouton -->
+      </form>
+
+       <!-- Optionnel : Lien pour retourner à la page de connexion -->
+       <div class="login-link-container">
+          <span class="login-link" (click)="navigateToLogin()">
+            Retour à la connexion
+          </span>
+        </div>
+
+  </div> <!-- Fin de form-container -->
+
+</div> <!-- Fin de login -->
+  

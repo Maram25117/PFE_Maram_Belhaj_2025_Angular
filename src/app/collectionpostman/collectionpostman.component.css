@@ -1,0 +1,225 @@
+
+:host {
+    display: block;
+  }
+  
+  
+  /* --- Style pour le composant Home --- */
+.Home {
+  font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #f5f7fa;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;        /* Espace sous l'AppBar */
+    padding-bottom: 60px;     /* Espace pour pied de page */
+    box-sizing: border-box;
+    overflow: hidden;    
+}
+
+.Home::before {
+  content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('/assets/blancsale.jpg') center center / cover no-repeat;
+    filter: blur(5px) brightness(0.95);
+    z-index: -1;
+}
+
+/* --- Contenu Principal --- */
+.page-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px 80px 20px; /* Espace pour appbar et footer */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+  
+  
+  .action-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1300px;
+    /*padding-bottom: 80px;*/
+  }
+  
+  /* --- Style des Cadres Individuels --- */
+  /* --- STYLES DES CADRES --- */
+
+.frame {
+  width: 320px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px; /* Espacement entre les cadres */
+}
+
+.frame:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.frame h3 {
+  color: #022552;
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.frame img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* --- STYLE DES BOUTONS --- */
+.image-button {
+  background-color: transparent;
+  color: #6483B9;
+  border: 2px solid #6483B9;
+  margin: 20px auto 25px;
+  padding: 10px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.image-button:hover {
+  background-color: #6483B9;
+  color: white;
+}
+
+/* --- DETAIL DU FICHIER SELECTIONNE --- */
+.file-selected-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.selected-file-name {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 0.95em;
+  color: #444;
+  word-break: break-all;
+  padding: 8px 12px;
+  background-color: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 4px;
+  max-width: 95%;
+}
+
+.selected-file-name strong {
+  font-weight: 600;
+}
+
+/* --- STYLE DES BOUTONS D'ANNULATION ET DE TELEVERSEMENT --- */
+.upload-cancel-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.upload-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.upload-button:hover {
+  background-color: #43a047;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #e53935;
+}
+
+/* --- MODALE DE CONFIRMATION --- */
+.confirmation-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.confirmation-dialog {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  z-index: 1051;
+}
+
+.dialog-title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #1E3A5F;
+}
+
+.dialog-message {
+  margin-bottom: 25px;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dialog-actions .image-button {
+  min-width: 110px;
+  font-weight: bold;
+}
+
+.swagger-input {
+  width: 90%;
+  padding: 10px;
+  font-size: 1rem;
+  margin: 15px auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  display: block;
+}

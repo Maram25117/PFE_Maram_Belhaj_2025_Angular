@@ -1,0 +1,284 @@
+/* Styles globaux et police */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  background-color: #f9fafb;
+}
+
+
+/* ==================== Styles Page de Connexion ====================#1E3A5F */
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 3rem;
+  box-sizing: border-box;
+  gap: 3rem;
+  background: url('/assets/GettyImages-1208498558-1-scaled-1.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+.image-container {
+  flex: 1;
+  order: 2;
+  height: 100%;
+}
+
+.form-container {
+  flex: 0 0 auto;
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  width: 100%;
+  
+  margin-bottom: 80px;
+}
+
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+.form-group input::placeholder {
+  color: #6b7280; 
+  opacity: 1;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);  /* bordure grise claire */
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.8);  /* fond blanc avec transparence */
+  backdrop-filter: blur(6px);  /* effet flou */
+  -webkit-backdrop-filter: blur(6px);
+  font-size: 1rem;
+  color: #1f2937;  /* couleur du texte foncé */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: #9ca3af;
+  background-color: rgba(255, 255, 255, 1); /* fond blanc complet au focus */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.3);
+}
+
+/* Pour les champs avec icône */
+.icon-input input {
+  padding-left: 40px;  /* espace pour l'icône */
+  background-color: rgba(255, 255, 255, 0.8);  /* fond blanc avec transparence */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.icon-input .icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;  
+  font-size: 1rem;
+}
+.form-group icon-input{
+  color: black;
+}
+
+
+.error {
+  color: #ffcdd2;
+  background-color: rgba(200, 30, 30, 0.7);
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  width: calc(100% - 30px);
+  box-sizing: border-box;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #022552;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reset-link-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.reset-password-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: inline-block;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.reset-password-link:hover {
+  color: #ffffff;
+}
+
+.reset-password-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.reset-password-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+
+/* Images cachées */
+.top-image, .logo {
+  display: none;
+}
+
+.grafana-link {
+  font-size: 0.9rem;
+  color: #022552;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.grafana-link:hover {
+  color: #6483B9; 
+  text-decoration: underline;
+}
+
+.icon-input {
+  position: relative;
+}
+
+.icon-input .icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #022552; 
+  font-size: 1rem;
+}
+
+.icon-input input {
+  padding-left: 40px; /* espace pour l’icône */
+}
+
+/* Styles pour le conteneur de l'input + icône */
+.icon-input {
+  position: relative; /* Nécessaire pour positionner l'icône absolument par rapport à ce div */
+  width: 100%; /* Assurez-vous qu'il prend toute la largeur si ce n'est pas déjà le cas via .form-group */
+}
+
+/* Styles pour l'icône elle-même */
+.icon-input .icon {
+  position: absolute;       /* Positionnement absolu par rapport à .icon-input */
+  left: 16px;             /* Distance depuis le bord gauche */
+  top: 50%;               /* Alignement vertical au centre */
+  transform: translateY(-50%); /* Ajustement fin pour un centrage vertical parfait */
+  color: #022552;           /* !! COULEUR NOIRE !! - C'est déjà là */
+  font-size: 1rem;        /* Taille de l'icône */
+  z-index: 2;             /* Optionnel: Pour s'assurer qu'elle est au-dessus de l'input si jamais il y a des problèmes de couches */
+  pointer-events: none;   /* Optionnel: Empêche l'icône d'interférer avec les clics sur l'input */
+}
+
+/* Styles pour l'input DANS le conteneur d'icône */
+.icon-input input {
+  padding-left: 40px; /* !! ESPACE POUR L'ICÔNE !! - C'est déjà là (ajustez si 40px n'est pas assez/trop) */
+  width: 100%;        /* Assurez-vous que l'input remplit le conteneur */
+  box-sizing: border-box; /* Important pour que le padding soit inclus dans la largeur */
+  /* Les autres styles de votre input (background, border, etc.) sont corrects */
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding-top: 16px; /* Conservez votre padding vertical */
+  padding-bottom: 16px;/* Conservez votre padding vertical */
+  padding-right: 16px; /* Conservez votre padding droit */
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+/* Style pour le message de succès (similaire à .error) */
+.success-message {
+  color: #d1fae5; /* Vert très clair (texte) */
+  background-color: rgba(5, 150, 105, 0.7); /* Vert foncé semi-transparent (fond) */
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0; /* Ajustez si nécessaire par rapport aux autres éléments */
+  margin-bottom: 0; /* Ajustez si nécessaire */
+  font-size: 0.875rem;
+  width: calc(100% - 30px); /* Correspond à la largeur du message d'erreur */
+  box-sizing: border-box;
+}

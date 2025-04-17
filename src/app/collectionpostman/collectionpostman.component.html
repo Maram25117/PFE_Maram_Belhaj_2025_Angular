@@ -1,0 +1,176 @@
+<div class="Home">
+    <app-appbar></app-appbar>
+
+    <main class="page-content">
+
+      
+      <div class="container action-container">
+
+        <!--<div class="frame">
+          <h3>Générer Une Collection Postman A Partir De L'url Importer</h3>
+
+         
+          <ng-container *ngIf="!showConfirmation; else confirmationDialogContent">
+            <button class="image-button generate-button" (click)="confirmGenerateCollection()">
+              <span aria-hidden="true"></span> Générer
+            </button>
+          </ng-container>
+
+         
+          <ng-template #confirmationDialogContent>
+           
+            <div class="confirmation-modal-overlay" *ngIf="showConfirmation"> 
+              <div class="confirmation-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-desc">
+                <h4 id="confirm-title" class="dialog-title">Confirmation Requise</h4>
+                <p id="confirm-desc" class="dialog-message">Voulez-vous vraiment générer une nouvelle collection ?</p>
+                <div class="dialog-actions">
+                  <button class="image-button confirm-yes-button" (click)="generateCollection()">
+                    <span aria-hidden="true">✔️</span> Oui
+                  </button>
+                  <button class="image-button confirm-no-button" (click)="cancelGenerate()">
+                    <span aria-hidden="true">❌</span> Annuler
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+       </div> -->
+
+        <div class="frame">
+          <h3>Télécharger La Collection Postman Générer</h3>
+          <button class="image-button download-button" (click)="downloadFile()">
+            <span aria-hidden="true"></span> Télécharger
+          </button>
+       </div> 
+
+
+       <div class="frame">
+        <h3>Importer Une Collection Postman Pour La Surveillance Des API</h3>
+      
+        <input id="file-upload-surveillance" type="file" (change)="onFileSelectedSurveillance($event)" hidden #fileInputSurveillance accept=".json"/>
+      
+        <label *ngIf="!selectedFileNameSurveillance" for="file-upload-surveillance" class="image-button file-label">
+          <span aria-hidden="true"></span> Choisir Fichier
+        </label>
+      
+        <div *ngIf="selectedFileNameSurveillance" class="file-selected-details">
+          <span class="selected-file-name">
+            Fichier: <strong>{{ selectedFileNameSurveillance }}</strong>
+          </span>
+          <div class="upload-cancel-buttons">
+            <button class="image-button upload-button" (click)="uploadFileSurveillance()" [disabled]="!selectedFileSurveillance">
+              <span aria-hidden="true">📤</span> Téléverser
+            </button>
+            <button class="image-button cancel-button" (click)="cancelFileSelectionSurveillance()">
+              <span aria-hidden="true">❌</span> Annuler
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="frame">
+        <h3>Importer Une Collection Postman Pour Ajouter Les Scripts Des Tests</h3>
+      
+        <input id="file-upload-script" type="file" (change)="onFileSelectedScript($event)" hidden #fileInputScript accept=".json"/>
+      
+        <label *ngIf="!selectedFileNameScript" for="file-upload-script" class="image-button file-label">
+          <span aria-hidden="true"></span> Choisir Fichier
+        </label>
+      
+        <div *ngIf="selectedFileNameScript" class="file-selected-details">
+          <span class="selected-file-name">
+            Fichier: <strong>{{ selectedFileNameScript }}</strong>
+          </span>
+          <div class="upload-cancel-buttons">
+            <button class="image-button upload-button" (click)="processPostmanFile()" [disabled]="!selectedFileScript">
+              <span aria-hidden="true">📤</span> Téléverser
+            </button>
+            <button class="image-button cancel-button" (click)="cancelFileSelectionScript()">
+              <span aria-hidden="true">❌</span> Annuler
+            </button>
+          </div>
+        </div>
+      </div>
+      
+
+
+       
+        <!--<div class="frame">
+           <h3>Télécharger Collection La Collection Générer</h3>
+           <button class="image-button download-button" (click)="downloadFile()">
+             <span aria-hidden="true"></span> Télécharger
+           </button>
+        </div>-->
+
+       
+        <!--<div class="frame">
+           <h3>Générer Collection Postman</h3>
+
+          
+           <ng-container *ngIf="!showConfirmation; else confirmationDialogContent">
+             <button class="image-button generate-button" (click)="confirmGenerateCollection()">
+               <span aria-hidden="true"></span> Générer
+             </button>
+           </ng-container>
+
+          
+           <ng-template #confirmationDialogContent>
+            
+             <div class="confirmation-modal-overlay" *ngIf="showConfirmation"> 
+               <div class="confirmation-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-desc">
+                 <h4 id="confirm-title" class="dialog-title">Confirmation Requise</h4>
+                 <p id="confirm-desc" class="dialog-message">Voulez-vous vraiment générer une nouvelle collection ?</p>
+                 <div class="dialog-actions">
+                   <button class="image-button confirm-yes-button" (click)="generateCollection()">
+                     <span aria-hidden="true">✔️</span> Oui
+                   </button>
+                   <button class="image-button confirm-no-button" (click)="cancelGenerate()">
+                     <span aria-hidden="true">❌</span> Annuler
+                   </button>
+                 </div>
+               </div>
+             </div>
+           </ng-template>
+        </div>-->
+
+       
+       <div class="frame">
+        <h3>URL Des API À Surveiller</h3>
+        <button class="image-button download-button" (click)="openSwaggerDialog()">
+          <span aria-hidden="true"></span> Swagger URL
+        </button>
+      </div>
+      
+      <!-- DIALOGUE MODAL SWAGGER -->
+      <div *ngIf="showSwaggerForm" class="confirmation-modal-overlay">
+        <div class="confirmation-dialog">
+          <h4 class="dialog-title">Lien Swagger</h4>
+      
+          <input
+            type="text"
+            class="swagger-input"
+            [readonly]="!isEditing"
+            [(ngModel)]="swaggerUrl"
+          />
+      
+          <div class="dialog-actions" *ngIf="!isEditing">
+            <button class="image-button" (click)="isEditing = true">✏️ Modifier</button>
+            <button class="image-button cancel-button" (click)="cancelSwaggerEdit()">❌ Annuler</button>
+          </div>
+      
+          <div class="dialog-actions" *ngIf="isEditing">
+            <button class="image-button upload-button" (click)="saveSwaggerUrl()">💾 Enregistrer</button>
+            <button class="image-button cancel-button" (click)="cancelSwaggerEdit()">❌ Annuler</button>
+          </div>
+        </div>
+      </div>
+      
+
+      </div> 
+
+    </main>
+
+
+        <app-footer></app-footer>
+
+</div> 

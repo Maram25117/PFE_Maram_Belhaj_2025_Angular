@@ -1,0 +1,56 @@
+<!--<body>
+    <div class="Home">
+        <app-appbar></app-appbar>
+        <div class="container">
+            <div class="frame">
+                <img src="assets/grafana2.webp"  alt="Image 1">
+                <button class="image-button"><a href="http://localhost:3000/login">Dashboard Grafana</a></button>
+            </div>
+            <div class="frame">
+                <img src="assets/swagger_ui.png" alt="Image 2">
+                <button class="image-button middle-frame-button"><a href="http://localhost:8089/swagger-ui/index.html">Swagger User Interface</a></button>
+            </div>
+            <div class="frame">
+                <img src="assets/postman_1.png" alt="Image 3">
+                <button class="image-button" type="button" (click)="navigateToCollectionPostman()"><strong>Collection Postman</strong></button>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</body>-->
+<body>
+    <div class="home">
+      <app-appbar></app-appbar>
+  
+      <div class="hero-section">
+        <h1>Bienvenue {{ username }} dans le Portail de Supervision</h1>
+        <p>Accédez rapidement aux outils de développement et de monitoring</p>
+      </div>
+  
+      <div class="container">
+        <div class="frame">
+          <img src="assets/ur_pin_small_front_wide_portrait_750x1000-removebg-preview.png" alt="Grafana">
+          <button class="image-button">
+            <a href="http://localhost:8089/actuator/prometheus" target="_blank">Métriques Prometheus</a>
+          </button>
+        </div>
+  
+        <div class="frame">
+          <img src="assets/bg_f8f8f8-flat_750x_075_f-pad_750x1000_f8f8f8.u3-removebg-preview.png" alt="Swagger UI">
+          <button class="image-button">
+            <a href="http://localhost:8089/swagger-ui/index.html" target="_blank">Swagger UI</a>
+          </button>
+        </div>
+  
+        <div class="frame">
+          <img src="assets/api6-removebg-preview.png" alt="Postman">
+          <button class="image-button" (click)="navigateToCollectionPostman()">
+            Gestion Des API
+          </button>
+        </div>
+      </div>
+  
+      <app-footer></app-footer>
+    </div>
+  </body>
+  

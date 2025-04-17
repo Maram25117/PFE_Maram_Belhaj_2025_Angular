@@ -1,1 +1,291 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* src/styles.css (ou .scss) */
+
+/* Styles globaux et police (Probablement déjà là) */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    background-color: #f9fafb; /* Fallback si l'image de fond ne charge pas */
+  }
+  
+  /* ================================================================== */
+  /* Styles COMMUNS pour les pages d'authentification (Login, Reset...)*/
+  /* ================================================================== */
+  .login { /* Utiliser .auth-page serait peut-être plus sémantique, mais .login fonctionne */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligne le form-container à gauche */
+    min-height: 100vh;
+    padding: 3rem;
+    box-sizing: border-box;
+    gap: 3rem; /* Espace entre image-container et form-container */
+    background: url('/assets/GettyImages-1208498558-1-scaled-1.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Conteneur pour l'image (vide sur ces pages, mais occupe l'espace) */
+  .image-container {
+    flex: 1;            /* Prend l'espace restant */
+    order: 2;           /* Se place à droite */
+    height: 100%;       /* Pour occuper la hauteur si nécessaire */
+  }
+  
+  /* Conteneur du formulaire (à gauche) */
+  .form-container {
+    flex: 0 0 auto;     /* Ne grandit pas, taille basée sur le contenu */
+    order: 1;           /* Se place à gauche */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 380px;   /* Largeur maximale du bloc formulaire */
+    width: 100%;        /* Prend 100% jusqu'à max-width */
+    margin-bottom: 80px;/* Marge en bas pour l'espace */
+    /* Pas de background ou de bordure ici, c'est la page entière qui a le fond */
+  }
+  
+  /* Titre des pages (SE CONNECTER, RÉINITIALISER, etc.) */
+  .title {
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
+    text-align: center;
+  }
+  
+  /* Style du formulaire lui-même */
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espace entre les éléments du formulaire (inputs, bouton) */
+  }
+  
+  /* Conteneur pour chaque champ (input + icône) */
+  .form-group {
+    width: 100%;
+    margin-bottom: 0; /* Le gap du 'form' gère l'espacement vertical */
+  }
+  
+  /* Styles pour les inputs dans le form-group */
+  .form-group input {
+    width: 100%;
+    padding: 16px; /* Padding vertical et droit */
+    border: 1px solid rgba(255, 255, 255, 0.3);  /* Bordure blanche semi-transparente */
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.8);  /* Fond blanc semi-transparent */
+    backdrop-filter: blur(6px);                 /* Effet de flou derrière */
+    -webkit-backdrop-filter: blur(6px);
+    font-size: 1rem;
+    color: #1f2937;                             /* Couleur du texte tapé */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+  
+  /* Style du placeholder dans les inputs */
+  .form-group input::placeholder {
+    color: #6b7280;
+    opacity: 1;
+  }
+  
+  /* Style des inputs au focus */
+  .form-group input:focus {
+    border-color: #9ca3af;                   /* Bordure plus visible */
+    background-color: rgba(255, 255, 255, 1); /* Fond blanc opaque */
+    outline: none;                           /* Pas de contour par défaut */
+    box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.3); /* Ombre externe douce */
+  }
+  
+  /* Conteneur spécifique pour un input AVEC icône */
+  .icon-input {
+    position: relative; /* Pour positionner l'icône à l'intérieur */
+    width: 100%;
+  }
+  
+  /* Style de l'icône à l'intérieur de .icon-input */
+  .icon-input .icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #022552; /* Couleur bleu foncé pour l'icône */
+    font-size: 1rem;
+    z-index: 2;
+    pointer-events: none; /* L'icône n'est pas cliquable */
+  }
+  
+  /* Ajustement du padding gauche pour les inputs qui ont une icône */
+  .icon-input input {
+    padding-left: 45px; /* Espace suffisant pour l'icône (ajustez si nécessaire) */
+  }
+  
+  /* Style du message d'erreur */
+  .error {
+    color: #ffcdd2;                        /* Texte rouge clair */
+    background-color: rgba(200, 30, 30, 0.7); /* Fond rouge foncé semi-transparent */
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0;                          /* Géré par le gap du form */
+    margin-bottom: 0;                       /* Géré par le gap du form */
+    font-size: 0.875rem;
+    width: calc(100% - 30px);               /* Légèrement moins large que l'input */
+    box-sizing: border-box;
+  }
+  
+  /* Style pour le message de succès (si utilisé) */
+  .success-message {
+    color: #d1fae5;                        /* Texte vert clair */
+    background-color: rgba(5, 150, 105, 0.7); /* Fond vert foncé semi-transparent */
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+  }
+  
+  /* Style commun des boutons */
+  .btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    margin-top: 10px; /* Petite marge haute pour séparer du dernier champ/erreur */
+  }
+  
+  /* Style spécifique du bouton primaire (Connexion, Envoyer, Réinitialiser) */
+  .btn-primary {
+    background-color: #ffffff; /* Fond blanc */
+    color: #022552;       /* Texte bleu foncé */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-primary:hover {
+    background-color: #f0f0f0; /* Léger gris au survol */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
+  
+  .btn-primary:active {
+    transform: translateY(1px); /* Effet d'appui */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Conteneur pour le lien "Mot de passe oublié ?" */
+  .reset-link-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+  }
+  
+  /* Style du lien "Mot de passe oublié ?" */
+  .reset-password-link {
+    color: rgba(255, 255, 255, 0.85); /* Blanc semi-transparent */
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    position: relative;
+    padding-bottom: 2px;
+  }
+  
+  .reset-password-link:hover {
+    color: #ffffff; /* Blanc opaque au survol */
+  }
+  
+  /* Effet de soulignement animé pour le lien */
+  .reset-password-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .reset-password-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Conteneur pour le lien "Retour à la connexion" */
+  .login-link-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+  }
+  
+  /* Style du lien "Retour à la connexion" (identique à reset-password-link) */
+  .login-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    position: relative;
+    padding-bottom: 2px;
+  }
+  
+  .login-link:hover {
+    color: #ffffff;
+  }
+  
+  .login-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .login-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Classes utilitaires (si nécessaire ailleurs aussi) */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Cacher les images spécifiques à l'ancien layout */
+  .top-image, .logo {
+    display: none;
+  }

@@ -1,0 +1,59 @@
+<div class="appbar-container">
+    <div class="appbar">
+      <img src="assets/images-removebg-preview.png" alt="Profile" class="profile-icon" (click)="toggleProfileForm()" />
+        <div class="title"></div>
+        <div class="spacer"></div>
+        <nav>
+            <!--<div class="profile-panel" *ngIf="showProfileForm">
+                <h3><strong>Gestion du profil</strong></h3>
+                <form (ngSubmit)="updateProfile()">
+                    <label>Nom d'utilisateur :</label>
+                    <input type="text" [(ngModel)]="admin.username" name="username" required />
+
+                    <label>Email :</label>
+                    <input type="email" [(ngModel)]="admin.email" name="email" required />
+
+                    <label>Mot de passe :</label>
+                    <input type="password" [(ngModel)]="admin.password" name="password" placeholder="Tapez le nouveau mot de passe" required />
+
+                    <label>Confirmer le mot de passe :</label>
+                    <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Retapez le nouveau mot de passe" required/> 
+
+                    <div class="buttons">
+                        <button type="submit">Enregistrer</button>
+                        <button type="button" (click)="toggleProfileForm()">Annuler</button>
+                    </div>
+                </form>
+            </div>-->
+            <div class="profile-panel" *ngIf="showProfileForm">
+              <h3 class="profile-title"><strong>GESTION DU PROFIL</strong></h3>
+              <form (ngSubmit)="updateProfile()">
+                <label for="username" class="profile-label">Nom d'utilisateur :</label>
+                <input id="username" type="text" [(ngModel)]="admin.username" name="username" required />
+            
+                <label for="email" class="profile-label">Email :</label>
+                <input id="email" type="email" [(ngModel)]="admin.email" name="email" required />
+            
+                <label for="password" class="profile-label">Mot de passe :</label>
+                <input id="password" type="password" [(ngModel)]="admin.password" name="password" placeholder="Tapez le nouveau mot de passe" required />
+            
+                <label for="confirmPassword"class="profile-label">Confirmer le mot de passe :</label>
+                <input id="confirmPassword" type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Retapez le mot de passe" required /> 
+            
+                <div class="buttons">
+                  <button type="submit">Enregistrer</button>
+                  <button type="button" (click)="toggleProfileForm()">Annuler</button>
+                </div>
+              </form>
+            </div>
+            
+
+           
+            <button class="login-logout-button" (click)=" navigateToAcceuil()">ACCEUIL</button>
+            <img src="assets/deconnexion.png" alt="Logout Icon" class="logout-logo" />
+            <button class="login-logout-button" (click)="handleLoginLogout()">DECONNEXION</button>
+        </nav>
+    </div>
+</div>
+
+  
