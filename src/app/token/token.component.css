@@ -1,4 +1,3 @@
-/* Styles globaux et police */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
@@ -6,7 +5,7 @@ body {
 }
 
 
-/* ==================== Styles Page de Connexion ====================#1E3A5F */
+
 .login {
   display: flex;
   align-items: center;
@@ -73,28 +72,28 @@ form {
 .form-group input {
   width: 100%;
   padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);  /* bordure grise claire */
+  border: 1px solid rgba(255, 255, 255, 0.3);  
   border-radius: 8px;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.8);  /* fond blanc avec transparence */
-  backdrop-filter: blur(6px);  /* effet flou */
+  background-color: rgba(255, 255, 255, 0.8);  
+  backdrop-filter: blur(6px); 
   -webkit-backdrop-filter: blur(6px);
   font-size: 1rem;
-  color: #1f2937;  /* couleur du texte foncé */
+  color: #1f2937;  
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .form-group input:focus {
   border-color: #9ca3af;
-  background-color: rgba(255, 255, 255, 1); /* fond blanc complet au focus */
+  background-color: rgba(255, 255, 255, 1);
   outline: none;
   box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.3);
 }
 
-/* Pour les champs avec icône */
+
 .icon-input input {
-  padding-left: 40px;  /* espace pour l'icône */
-  background-color: rgba(255, 255, 255, 0.8);  /* fond blanc avec transparence */
+  padding-left: 40px;  
+  background-color: rgba(255, 255, 255, 0.8);  
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -197,7 +196,7 @@ form {
 
 
 
-/* Images cachées */
+
 .top-image, .logo {
   display: none;
 }
@@ -229,56 +228,55 @@ form {
 }
 
 .icon-input input {
-  padding-left: 40px; /* espace pour l’icône */
+  padding-left: 40px;
 }
 
-/* Styles pour le conteneur de l'input + icône */
+
 .icon-input {
-  position: relative; /* Nécessaire pour positionner l'icône absolument par rapport à ce div */
-  width: 100%; /* Assurez-vous qu'il prend toute la largeur si ce n'est pas déjà le cas via .form-group */
+  position: relative;
+  width: 100%; 
 }
 
-/* Styles pour l'icône elle-même */
+
 .icon-input .icon {
-  position: absolute;       /* Positionnement absolu par rapport à .icon-input */
-  left: 16px;             /* Distance depuis le bord gauche */
-  top: 50%;               /* Alignement vertical au centre */
-  transform: translateY(-50%); /* Ajustement fin pour un centrage vertical parfait */
-  color: #022552;           /* !! COULEUR NOIRE !! - C'est déjà là */
-  font-size: 1rem;        /* Taille de l'icône */
-  z-index: 2;             /* Optionnel: Pour s'assurer qu'elle est au-dessus de l'input si jamais il y a des problèmes de couches */
-  pointer-events: none;   /* Optionnel: Empêche l'icône d'interférer avec les clics sur l'input */
+  position: absolute;       
+  left: 16px;             
+  top: 50%;              
+  transform: translateY(-50%);
+  color: #022552;           
+  font-size: 1rem;       
+  z-index: 2;             
+  pointer-events: none;   
 }
 
-/* Styles pour l'input DANS le conteneur d'icône */
+
 .icon-input input {
-  padding-left: 40px; /* !! ESPACE POUR L'ICÔNE !! - C'est déjà là (ajustez si 40px n'est pas assez/trop) */
-  width: 100%;        /* Assurez-vous que l'input remplit le conteneur */
-  box-sizing: border-box; /* Important pour que le padding soit inclus dans la largeur */
-  /* Les autres styles de votre input (background, border, etc.) sont corrects */
+  padding-left: 40px; 
+  width: 100%;       
+  box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
-  padding-top: 16px; /* Conservez votre padding vertical */
-  padding-bottom: 16px;/* Conservez votre padding vertical */
-  padding-right: 16px; /* Conservez votre padding droit */
+  padding-top: 16px; 
+  padding-bottom: 16px;
+  padding-right: 16px; 
   font-size: 1rem;
   color: #1f2937;
 }
 
-/* Style pour le message de succès (similaire à .error) */
+
 .success-message {
-  color: #d1fae5; /* Vert très clair (texte) */
-  background-color: rgba(5, 150, 105, 0.7); /* Vert foncé semi-transparent (fond) */
+  color: #d1fae5; 
+  background-color: rgba(5, 150, 105, 0.7); 
   padding: 8px 15px;
   border-radius: 4px;
   font-weight: 500;
   text-align: center;
-  margin-top: 0; /* Ajustez si nécessaire par rapport aux autres éléments */
-  margin-bottom: 0; /* Ajustez si nécessaire */
+  margin-top: 0; 
+  margin-bottom: 0; 
   font-size: 0.875rem;
-  width: calc(100% - 30px); /* Correspond à la largeur du message d'erreur */
+  width: calc(100% - 30px); 
   box-sizing: border-box;
 }

@@ -1,10 +1,9 @@
-/* --- GLOBAL STYLES --- */
 html {
-    overflow: hidden;        /* Supprime le scroll global */
-    height: 100vh;           /* Fixe la hauteur de la fenêtre */
-}
+    overflow: auto;
+    height: 100vh;
+  }
   
-body {
+  body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
@@ -14,14 +13,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 80px;        /* Espace sous l'AppBar */
-    padding-bottom: 60px;     /* Espace pour pied de page */
+    padding-top: 80px; /* Espace pour l'appbar fixe */
+    padding-bottom: 60px;
     box-sizing: border-box;
-    overflow: hidden;         /* Évite débordement du body */
-}
+    overflow: hidden;
+  }
   
-/* --- BACKGROUND --- */
-body::before {
+  /* --- BACKGROUND --- */
+  body::before {
     content: "";
     position: fixed;
     top: 0;
@@ -31,62 +30,55 @@ body::before {
     background: url('/assets/blancsale.jpg') center center / cover no-repeat;
     filter: blur(5px) brightness(0.95);
     z-index: -1;
-}
+  }
   
-
-/* --- APPBAR --- */
-.appbar-container {
+  /* --- APPBAR --- */
+  .appbar-container {
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: #022552; /* Couleur AppBar */
-}
-
-/* Styles pour la barre de navigation */
-.appbar {
+    background-color: #022552;
+  }
+  
+  .appbar {
     display: flex;
     align-items: center;
     padding: 10px 16px;
     height: 50px;
-}
-
-/* Logo dans la barre de navigation */
-.profile-icon {
+  }
+  
+  .profile-icon {
     height: 45px;
     cursor: pointer;
     margin-right: 16px;
-}
-
-/* Titre de l'AppBar */
-.title {
+  }
+  
+  .title {
     font-size: 18px;
     font-weight: bold;
     color: white;
-    flex-grow: 1;
-}
-
-/* Espacement flexible pour le titre et autres éléments */
-.spacer {
-    flex-grow: 1;
-}
-
-/* Navigation dans l'AppBar */
-nav {
+    flex-grow: 1; /* Le titre prend l'espace, mais vous n'avez pas de texte ici */
+  }
+  
+  .spacer {
+    flex-grow: 1; /* Assure que les éléments de nav sont poussés à droite */
+  }
+  
+  nav {
     display: flex;
     align-items: center;
-}
-
-/* Icône de déconnexion */
-.logout-logo {
+  }
+  
+  .logout-logo {
     height: 24px;
     margin-right: 8px;
     cursor: pointer;
-}
-
-/* Boutons de navigation */
-nav button {
+  }
+  
+  /* Style de base pour les boutons de navigation dans l'appbar (si besoin) */
+  nav button {
     background: none;
     border: none;
     color: white;
@@ -95,46 +87,33 @@ nav button {
     margin: 0 8px;
     display: flex;
     align-items: center;
-}
-
-/* Style pour les boutons de l'AppBar */
-nav .appbar-button {
-    background-color: transparent;
-    border: 1px solid #ffffff;
-    padding: 8px 12px;
-    border-radius: 4px;
-}
-
-/* Hover sur les boutons de l'AppBar */
-nav .appbar-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Bouton de connexion / déconnexion */
-.login-logout-button {
+  }
+  
+  /* Boutons spécifiques dans l'appbar comme ACCUEIL/DECONNEXION */
+  .login-logout-button {
     background-color: white;
-    color: #6483B9;
-    border: 1px solid #6483B9;
+    color: #022552; /* Changé pour un meilleur contraste avec le bleu foncé de l'appbar */
+    border: 1px solid #022552;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-}
-
-/* Hover sur le bouton de connexion / déconnexion */
-.login-logout-button:hover {
-    background-color: white;
-    color: #6483B9;
-}
-
-/* --- PROFILE FORM --- */
-.profile-panel {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .login-logout-button:hover {
+    background-color: #e9ecef; /* Un gris clair pour le survol */
+    color: #022552;
+  }
+  
+  /* --- PROFILE PANEL --- */
+  .profile-panel {
     position: absolute;
-    top: 60px;
+    top: 60px; /* Sous l'appbar */
     left: 20px;
     width: 380px;
-    background: rgba(255, 255, 255, 0.7); /* Flou + transparence */
-    backdrop-filter: blur(8px); /* Applique le flou */
+    background: rgba(255, 255, 255, 0.85); /* Légèrement plus opaque pour la lisibilité */
+    backdrop-filter: blur(8px);
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
@@ -142,108 +121,191 @@ nav .appbar-button:hover {
     flex-direction: column;
     z-index: 1001;
     animation: slide-down 0.3s ease-out;
-}
-
-/*.profile-panel input {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    transition: border 0.2s;
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.9); 
-    backdrop-filter: blur(5px);
-}*/
-.profile-panel input {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 6px;
-    font-size: 14px;
-    /*background: rgba(255, 255, 255, 0.25); */
-    background-color: whitesmoke;
+    max-height: calc(100vh - 80px); /* 60px top + 20px padding en bas (approx) */
+    overflow-y: auto; /* Ajout du scroll si le contenu dépasse */
+  }
+  
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .profile-title {
     color: #022552;
-    backdrop-filter: blur(6px); /* effet flou */
-    -webkit-backdrop-filter: blur(6px); /* pour Safari */
+    font-size: 22px;
+    margin-top: 60px; 
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(to right, #022552, #3a6aa8); /* Ajustement du gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style pour les sous-titres des sections du formulaire (comme "Changer le mot de passe") */
+  .profile-subtitle {
+    font-size: 18px; /* Un peu plus grand */
+    color: #022552;
+    margin-top: 10px; /* Moins de marge si après un hr */
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(2, 37, 82, 0.2);
+    padding-bottom: 8px;
+  }
+  
+  .profile-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #022552;
+    margin-bottom: 8px; /* Espace sous le label */
+    display: block; /* Pour que la marge s'applique correctement */
+    text-transform: capitalize;
+  }
+  
+  .profile-panel input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px; /* Espace sous l'input */
+    border: 1px solid rgba(2, 37, 82, 0.3); /* Bordure un peu plus visible */
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f8f9fa; /* Fond légèrement différent de blanc pur */
+    color: #022552;
+    box-sizing: border-box; /* Pour que padding et border soient inclus dans width */
     transition: all 0.3s ease;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.profile-panel input::placeholder {
-    color: gray;
+  }
+  
+  .profile-panel input::placeholder {
+    color: #6c757d; /* Couleur de placeholder plus standard */
     font-style: italic;
-}
-
-
-
-.profile-panel input:focus {
+  }
+  
+  .profile-panel input:focus {
     border-color: #022552;
     outline: none;
-    box-shadow: 0 0 4px rgba(2, 37, 82, 0.4);
-}
-
-.profile-panel .buttons {
+    box-shadow: 0 0 0 0.2rem rgba(2, 37, 82, 0.25); /* Effet de focus Bootstrap-like */
+  }
+  
+  /* Séparateur horizontal entre les formulaires */
+  .profile-separator {
+    border: none;
+    border-top: 1px solid rgba(2, 37, 82, 0.3);
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  
+  /* Conteneur général pour les groupes de boutons dans le panel */
+  .profile-panel .buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 12px;
-}
-
-.profile-panel button {
-    flex: 1;
-    padding: 10px;
-    margin: 0 6px;
+    margin-top: 15px; /* Espace avant le groupe de boutons */
+  }
+  
+  /* Styles pour les boutons d'action de section (Mettre à jour, Changer mot de passe) */
+  .profile-panel .buttons.section-buttons {
+    justify-content: flex-end; /* Aligner à droite */
+  }
+  
+  .profile-panel .buttons.section-buttons button {
+    padding: 10px 20px;
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
     transition: background 0.2s, color 0.2s, border 0.2s;
-}
-
-/* ✅ Bouton ENREGISTRER */
-.profile-panel button[type="submit"] {
-    background-color: white;
+    background-color: transparent;
     color: #6483B9;
     border: 2px solid #6483B9;
-}
-
-.profile-panel button[type="submit"]:hover {
-    background-color: #f0f4fa;
-    color: #6483B9;
-}
-
-/* ✅ Bouton ANNULER */
-.profile-panel button[type="button"] {
-    background-color: #6483B9;
-    color: white;
-    border: 2px solid #6483B9;
-}
-
-.profile-panel button[type="button"]:hover {
-    background-color: #6483B9;
-    color: white;
-}
-
-/* --- Titre du profil --- */
-.profile-title {
-    color: #022552;
-    font-size: 22px;
-    margin-bottom: 20px;
+    min-width: 150px; /* Pour une largeur minimale */
     text-align: center;
+  }
+  
+  .profile-panel .buttons.section-buttons button:hover {
+    /*background-color: #6483B9;*/ /* Bleu un peu plus clair au survol */
+    /*border-color: #6483B9;*/
+    background-color: #6483B9; /* Bleu foncé pour les actions primaires */
+    color: white;
+    border: 2px solid #6483B9;
+  }
+  
+  /* Styles pour les actions communes (comme Annuler) */
+  .profile-panel .buttons.common-actions {
+    margin-top: 25px; /* Plus d'espace avant le bouton Annuler global */
+    justify-content: center; /* Centrer le bouton Annuler */
+  }
+  
+  /* Style spécifique pour le bouton Annuler */
+  .profile-panel button.cancel {
+    padding: 10px 25px;
+    border-radius: 6px;
     font-weight: bold;
-    background: linear-gradient(to right, #022552, #6483B9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    background-color: #dc3545; /* Rouge pour Annuler */
+    color: white;
+    border: 2px solid #dc3545;
+    min-width: 150px;
+    text-align: center;
+  }
+  
+  .profile-panel button.cancel:hover {
+    background-color: #c82333; /* Rouge plus foncé au survol */
+    border-color: #bd2130;
+  }
+  
+  .profile-panel button[type="button"] {
+    background-color: #c82333;
+    color: white;
+    border: 2px solid #c82333;
+    margin-top: 12px; /* Ajout d'un espace au-dessus */
+    margin-bottom: 20px; /* Ajout d'un espace en dessous */
 }
 
-/* --- Label des champs du profil --- */
-.profile-label {
-    font-size: 15px;
-    font-weight: 500;
-    color: #022552;
-    margin-bottom: 6px;
-    display: inline-block;
-    margin-left: 5px;
-    text-transform: capitalize;
+
+/*alerte*/
+.custom-alert-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.custom-alert-box {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.custom-alert-box p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.custom-alert-box button {
+  padding: 8px 20px;
+  font-size: 14px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-alert-box button:hover {
+  background-color: #0056b3;
 }

@@ -15,8 +15,8 @@ const routes: Routes = [
   {path: 'collection', component: CollectionpostmanComponent, canActivate: [AuthGuard]},
   { path: 'grafana', canActivate: [AuthGuard], component: HomeComponent },
   {path: 'reset-password', component: ForgotComponent},
-  { path: 'token', component:TokenComponent }, // Ensure default route is login
-  { path: 'login', component: LoginComponent } // ajouter
+  { path: 'token', component:TokenComponent }, 
+  { path: 'login', component: LoginComponent } 
 ];
 
 @NgModule({

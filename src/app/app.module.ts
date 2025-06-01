@@ -11,11 +11,10 @@ import { AppbarComponent } from './appbar/appbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotComponent } from './forgot/forgot.component';
 import { TokenComponent } from './token/token.component';
-//import { BasicAuthInterceptor } from './basic-auth.interceptor';
-//import { AuthInterceptor } from './basic-auth.interceptor';
 import { CollectionpostmanComponent } from './collectionpostman/collectionpostman.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AlertComponent } from './alert/alert.component';
 
 
 
@@ -29,7 +28,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     TokenComponent,
     CollectionpostmanComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +38,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [ /*{ provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true }*/
-    
+  providers: [
   ],
   bootstrap: [AppComponent]
 })

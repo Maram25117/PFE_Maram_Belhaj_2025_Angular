@@ -4,7 +4,7 @@
   }
   
   
-  /* --- Style pour le composant Home --- */
+  
 .Home {
   font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -15,8 +15,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 80px;        /* Espace sous l'AppBar */
-    padding-bottom: 60px;     /* Espace pour pied de page */
+    padding-top: 80px;        
+    padding-bottom: 60px;     
     box-sizing: border-box;
     overflow: hidden;    
 }
@@ -33,13 +33,13 @@
     z-index: -1;
 }
 
-/* --- Contenu Principal --- */
+
 .page-content {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 20px 80px 20px; /* Espace pour appbar et footer */
+  padding: 20px 20px 80px 20px; 
   box-sizing: border-box;
   width: 100%;
 }
@@ -53,11 +53,10 @@
     justify-content: center;
     width: 100%;
     max-width: 1300px;
-    /*padding-bottom: 80px;*/
+   
   }
   
-  /* --- Style des Cadres Individuels --- */
-  /* --- STYLES DES CADRES --- */
+  
 
 .frame {
   width: 320px;
@@ -72,7 +71,7 @@
   box-sizing: border-box;
   text-align: center;
   color: #333;
-  margin-bottom: 20px; /* Espacement entre les cadres */
+  margin-bottom: 20px; 
 }
 
 .frame:hover {
@@ -94,7 +93,7 @@
   object-fit: cover;
 }
 
-/* --- STYLE DES BOUTONS --- */
+
 .image-button {
   background-color: transparent;
   color: #6483B9;
@@ -113,7 +112,7 @@
   color: white;
 }
 
-/* --- DETAIL DU FICHIER SELECTIONNE --- */
+
 .file-selected-details {
   display: flex;
   flex-direction: column;
@@ -138,7 +137,7 @@
   font-weight: 600;
 }
 
-/* --- STYLE DES BOUTONS D'ANNULATION ET DE TELEVERSEMENT --- */
+
 .upload-cancel-buttons {
   display: flex;
   justify-content: center;
@@ -165,7 +164,7 @@
   background-color: #e53935;
 }
 
-/* --- MODALE DE CONFIRMATION --- */
+
 .confirmation-modal-overlay {
   position: fixed;
   top: 0;
@@ -222,4 +221,71 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   display: block;
+}
+
+
+.alert {
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.custom-alert-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.custom-alert-box {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.custom-alert-box p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.custom-alert-box button {
+  padding: 8px 20px;
+  font-size: 14px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-alert-box button:hover {
+  background-color: #0056b3;
 }

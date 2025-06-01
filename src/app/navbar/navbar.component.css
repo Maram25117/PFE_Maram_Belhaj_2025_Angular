@@ -1,6 +1,3 @@
-/* src/app/navbar/navbar.component.css */
-
-/* ==================== Styles Barre de Navigation ==================== */
 .navbar {
     background-color: white;
     padding: 0.8rem 3rem;
@@ -18,14 +15,14 @@
   .navbar-brand {
     font-weight: 900;
     font-size: 1.30rem;
-    color: #022552; /*#1f2937*/
+    color: #022552; 
   }
   .navbar-contact {
     display: flex;
     align-items: center;
     gap: 1.5rem;
   }
-  /* Si vous utilisez encore la classe .contact-item (actuellement non présente dans votre HTML nav), gardez-la */
+ 
   
   .contact-item {
     display: inline-flex;
@@ -34,7 +31,6 @@
   }
   
   
-  /* Style pour les <p> dans navbar-contact */
   .navbar-contact p
   {
     font-size: 0.9rem;
@@ -44,7 +40,7 @@
     margin: 0;
   }
   
-  /* Style pour les liens spécifiques grafana (et autres liens dans navbar-contact) */
+  
   .grafana-link {
     font-size: 0.9rem;
     color: #022552;
@@ -58,4 +54,4 @@
     text-decoration: underline;
   }
   
-  /* Assurez-vous qu'AUCUN style spécifique à .login, .form-container, .icon-input etc. ne soit dans ce fichier */
+  

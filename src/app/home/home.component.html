@@ -1,56 +1,60 @@
-<!--<body>
-    <div class="Home">
-        <app-appbar></app-appbar>
-        <div class="container">
-            <div class="frame">
-                <img src="assets/grafana2.webp"  alt="Image 1">
-                <button class="image-button"><a href="http://localhost:3000/login">Dashboard Grafana</a></button>
-            </div>
-            <div class="frame">
-                <img src="assets/swagger_ui.png" alt="Image 2">
-                <button class="image-button middle-frame-button"><a href="http://localhost:8089/swagger-ui/index.html">Swagger User Interface</a></button>
-            </div>
-            <div class="frame">
-                <img src="assets/postman_1.png" alt="Image 3">
-                <button class="image-button" type="button" (click)="navigateToCollectionPostman()"><strong>Collection Postman</strong></button>
-            </div>
-        </div>
-        <app-footer></app-footer>
+
+<div class="body">
+  <!-- Message de succès -->
+<div *ngIf="successMessage" class="alert success-alert">
+  <span class="alert-icon">&#10003;</span> 
+  <span class="alert-text">{{ successMessage }}</span>
+</div>
+
+<!-- Message d'erreur -->
+<div *ngIf="errorMessage" class="alert error-alert">
+  <span class="alert-icon">&#9888;</span> 
+  <span class="alert-text">{{ errorMessage }}</span>
+</div>
+
+
+  <div class="home">
+    <app-appbar></app-appbar>
+
+    <div class="hero-section">
+      <h1>Bienvenue {{ username }} dans le Portail de Supervision</h1>
+      <p>Accédez rapidement aux outils de développement et de monitoring</p>
     </div>
-</body>-->
-<body>
-    <div class="home">
-      <app-appbar></app-appbar>
-  
-      <div class="hero-section">
-        <h1>Bienvenue {{ username }} dans le Portail de Supervision</h1>
-        <p>Accédez rapidement aux outils de développement et de monitoring</p>
+
+    <div class="container">
+      <div class="frame">
+        <img src="assets/website-online-internet-icon-vector-260nw-1654899268.jpg" alt="Swagger URL" />
+        <button class="image-button" (click)="openSwaggerDialog()">Swagger URL</button>
       </div>
-  
-      <div class="container">
-        <div class="frame">
-          <img src="assets/ur_pin_small_front_wide_portrait_750x1000-removebg-preview.png" alt="Grafana">
-          <button class="image-button">
-            <a href="http://localhost:8089/actuator/prometheus" target="_blank">Métriques Prometheus</a>
-          </button>
-        </div>
-  
-        <div class="frame">
-          <img src="assets/bg_f8f8f8-flat_750x_075_f-pad_750x1000_f8f8f8.u3-removebg-preview.png" alt="Swagger UI">
-          <button class="image-button">
-            <a href="http://localhost:8089/swagger-ui/index.html" target="_blank">Swagger UI</a>
-          </button>
-        </div>
-  
-        <div class="frame">
-          <img src="assets/api6-removebg-preview.png" alt="Postman">
-          <button class="image-button" (click)="navigateToCollectionPostman()">
-            Gestion Des API
-          </button>
+
+      <div *ngIf="showSwaggerForm" class="confirmation-modal-overlay">
+        <div class="confirmation-dialog">
+          <h4 class="dialog-title">Lien Swagger</h4>
+          <input type="text" class="swagger-input" [readonly]="!isEditing" [(ngModel)]="swaggerUrl" />
+          <div class="dialog-actions" *ngIf="!isEditing">
+            <button class="image-button" (click)="isEditing = true">✏️ Modifier</button>
+            <button class="image-button cancel-button" (click)="cancelSwaggerEdit()">❌ Annuler</button>
+          </div>
+          <div class="dialog-actions" *ngIf="isEditing">
+            <button class="image-button upload-button" (click)="saveSwaggerUrl()">💾 Enregistrer</button>
+            <button class="image-button cancel-button" (click)="cancelSwaggerEdit()">❌ Annuler</button>
+          </div>
         </div>
       </div>
-  
-      <app-footer></app-footer>
+
+      <div class="frame">
+        <img src="assets/bg_f8f8f8-flat_750x_075_f-pad_750x1000_f8f8f8.u3-removebg-preview.png" alt="Swagger UI" />
+        <button class="image-button">
+          <a href="http://localhost:8089/swagger-ui/index.html" target="_blank">Swagger UI</a>
+        </button>
+      </div>
+
+      <div class="frame">
+        <img src="assets/postman1.png" alt="Postman" />
+        <button class="image-button" (click)="navigateToCollectionPostman()">Collection Postman</button>
+      </div>
     </div>
-  </body>
-  
+
+    <app-footer></app-footer>
+  </div>
+</div>

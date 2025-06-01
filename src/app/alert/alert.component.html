@@ -1,0 +1,9 @@
+<div class="alert" [ngClass]="type" *ngIf="isVisible">
+  <div class="alert-content">
+    <span *ngIf="type === 'success'" class="icon">✅</span>
+    <span *ngIf="type === 'error'" class="icon">❌</span>
+    <span *ngIf="type === 'info'" class="icon">ℹ️</span>
+    <strong>{{ message }}</strong>
+  </div>
+  <button class="close-btn" (click)="closeAlert()">OK</button>
+</div>

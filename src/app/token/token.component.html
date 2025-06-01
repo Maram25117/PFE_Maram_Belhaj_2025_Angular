@@ -1,21 +1,14 @@
 <app-navbar></app-navbar> 
 <div class="login"> 
   <div class="image-container">
-    <!-- Vide -->
   </div>
 
-  <!-- Section formulaire (gauche) - Structure identique à la connexion -->
+  
   <div class="form-container">
-
-      <!-- Titre spécifique à la page -->
-      <h1 class="title">Modifier mot de passe</h1> <!-- MODIFIÉ : Titre -->
-
-      <!-- Formulaire de réinitialisation (étape 2) -->
-      <form (submit)="handleResetPasswordSubmit($event)"> <!-- MODIFIÉ: Appelle la bonne fonction -->
-
-        <!-- Champ Token -->
+      <h1 class="title">Modifier mot de passe</h1> 
+      <form (submit)="handleResetPasswordSubmit($event)"> 
         <div class="form-group icon-input">
-          <i class="fas fa-key icon"></i> <!-- MODIFIÉ: Icône pour le token -->
+          <i class="fas fa-key icon"></i> 
           <input
             type="text"
             id="token"
@@ -27,9 +20,9 @@
           />
         </div>
 
-        <!-- Champ Nouveau Mot de passe -->
+        
         <div class="form-group icon-input">
-          <i class="fas fa-lock icon"></i> <!-- Icône -->
+          <i class="fas fa-lock icon"></i> 
           <input
             type="password"
             id="newPassword"
@@ -40,7 +33,7 @@
           />
         </div>
 
-        <!-- Champ Confirmer Mot de passe -->
+       
         <div class="form-group icon-input">
           <i class="fas fa-lock icon"></i> 
           <input
@@ -53,23 +46,23 @@
           />
         </div>
 
-        <!-- Affichage de l'erreur -->
+       
         <div class="error" *ngIf="error">{{ error }}</div>
-        <!-- Affichage du succès -->
-        <div *ngIf="success" class="success-message">{{ success }}</div> <!-- Gardé, style à ajouter/vérifier -->
+       
+        <div *ngIf="success" class="success-message">{{ success }}</div> 
 
-        <!-- Bouton d'envoi -->
-        <button type="submit" class="btn btn-primary">RÉINITIALISER</button> <!-- MODIFIÉ: Texte du bouton -->
+       
+        <button type="submit" class="btn btn-primary">RÉINITIALISER</button> 
       </form>
 
-       <!-- Optionnel : Lien pour retourner à la page de connexion -->
+       
        <div class="login-link-container">
           <span class="login-link" (click)="navigateToLogin()">
             Retour à la connexion
           </span>
         </div>
 
-  </div> <!-- Fin de form-container -->
+  </div> 
 
-</div> <!-- Fin de login -->
+</div> 
   

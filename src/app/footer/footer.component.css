@@ -1,5 +1,5 @@
 .footer {
-    background-color: #022552; /* Couleur identique à AppBar */
+    background-color: #022552; 
     color: white;
     position: fixed;
     bottom: 0;
@@ -15,7 +15,6 @@
   
   .footer-content {
     width: 100%;
-    /*max-width: 1200px;*/
     padding: 0 20px;
     display: flex;
     align-items: center;
@@ -28,8 +27,6 @@
   }
 
   .footer-text {
-    /*font-size: 1.1rem;*/
-    /*font-weight: bold;*/
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 2.2rem;

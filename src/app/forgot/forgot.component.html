@@ -3,7 +3,6 @@
 <div class="login">
 
   <div class="image-container">
-    <!-- Vide -->
   </div>
 
   <div class="form-container">
@@ -28,31 +27,31 @@
         />
       </div>
 
-      <!-- Affichage de l'erreur de VALIDATION (locale) -->
+    
       <div class="error validation-error" *ngIf="validationError">
           {{ validationError }}
       </div>
 
-      <!-- Affichage du Feedback de l'API (Succès OU Erreur) -->
+     
       <div class="api-feedback" *ngIf="apiFeedbackMessage" [ngClass]="{'success-message': isApiSuccess, 'error': !isApiSuccess}">
           <i class="fas" [ngClass]="{'fa-check-circle': isApiSuccess, 'fa-times-circle': !isApiSuccess}" aria-hidden="true"></i>
           <span>{{ apiFeedbackMessage }}</span>
       </div>
 
-      <!-- Bouton de soumission -->
+     
       <button type="submit" class="btn btn-primary" [disabled]="isLoading || isApiSuccess">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
         {{ isLoading ? 'VÉRIFICATION...' : 'ENVOYER' }}
       </button>
     </form>
 
-    <!-- Lien Retour -->
+   
     <div class="login-link-container">
        <span class="login-link" (click)="navigateToLogin()">
          Retour à la connexion
        </span>
      </div>
 
-  </div> <!-- Fin de form-container -->
+  </div> 
 
-</div> <!-- Fin de login -->
+</div> 

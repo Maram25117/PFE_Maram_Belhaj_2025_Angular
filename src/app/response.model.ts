@@ -1,4 +1,3 @@
-// response.model.ts
 
 // Interface pour la réponse de succès
 export interface SuccessResponse {
